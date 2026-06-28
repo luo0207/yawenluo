@@ -59,13 +59,36 @@
 
         <style>
             .paper {
-                clear: left;
+                display: grid;
+                grid-template-columns: 200px 1fr;
+                column-gap: 15px;
+                align-items: start;
                 margin-bottom: 25px; /* 您可以根据需要调整这个数值 */
+            }
+            .paper .pimg {
+                grid-column: 1;
+                grid-row: 1 / span 20;
+                float: none !important;
+                margin: 0 !important;
+                padding-left: 0 !important;
+            }
+            .paper .pimg img,
+            .paper .pimg video {
+                display: block;
+                width: 200px;
+            }
+            .paper > div:not(.pimg) {
+                grid-column: 2;
+                margin-left: 0 !important;
             }
             .ptldr {
                 color: #555;
                 line-height: 1.35;
+                margin-top: 0;
+            }
+            .pvenue p {
                 margin-top: 4px;
+                margin-bottom: 2px;
             }
         </style>
         
@@ -73,7 +96,9 @@
         
             <div class="paper">
                 <div class="pimg" style="float:left;margin-bottom:10px;padding-left:3px;border-bottom:solid 1px #EEE;box-shadow:0 0px 2px">
-                    <img src="./imgs/shotstream_logo.png" width="200" alt="ShotStream Paper Thumbnail">
+                    <video width="200" autoplay muted loop playsinline poster="./imgs/shotstream_logo.png" aria-label="ShotStream Paper Demo">
+                        <source src="./demos/shotstream.mp4" type="video/mp4">
+                    </video>
                 </div>
                 <div class="ptitle" style="padding:3px;margin-left:215px;">
                     ShotStream: Streaming Multi-Shot Video Generation for Interactive Storytelling
@@ -81,7 +106,6 @@
                 <div class="pauthors" style="padding:3px;margin-left:215px;">
                     <b>Yawen Luo</b>, Xiaoyu Shi†, Junhao Zhuang, Yutian Chen, Quande Liu, Xintao Wang, Pengfei Wan, Tianfan Xue†
                 </div>
-                <div class="ptldr" style="padding:3px;margin-left:215px;">TL;DR: ShotStream is a causal multi-shot video generation framework for interactive storytelling, enabling efficient on-the-fly frame generation at 16 FPS on a single NVIDIA GPU.</div>
                 <div class="pvenue" style="padding:3px;margin-left:215px;">
                     ECCV, 2026.
                     <p>
@@ -91,6 +115,7 @@
                         [<a href="https://huggingface.co/KlingTeam/ShotStream" target="_blank" rel="noopener">Models</a>]
                     </p>
                 </div>
+                <div class="ptldr" style="padding:3px;margin-left:215px;">ShotStream is a causal multi-shot video generation framework for interactive storytelling, enabling efficient on-the-fly frame generation at 16 FPS on a single NVIDIA GPU.</div>
             </div>
         
             <div class="paper">
@@ -103,7 +128,6 @@
                 <div class="pauthors" style="padding:3px;margin-left:215px;">
                     <b>Yawen Luo</b>, Xiaoyu Shi†, Jianhong Bai, Menghan Xia, Xintao Wang, Pengfei Wan, Di Zhang, Kun Gai, Tianfan Xue†
                 </div>
-                <div class="ptldr" style="padding:3px;margin-left:215px;">TL;DR: CamCloneMaster enables reference-based camera control by replicating camera movements from videos without camera parameters or test-time fine-tuning, supporting both I2V and V2V generation.</div>
                 <div class="pvenue" style="padding:3px;margin-left:215px;">
                     ACM (SIGGRAPH Asia), 2025
                     <p>
@@ -114,6 +138,7 @@
                         [<a href="https://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2650996999&idx=3&sn=b8c7adf820c5b5e865de280924115a5d&chksm=85c263a8370a80e601a19b79269fcfad5e03ef7849d7a7b6287bcac46c5efb6903972b6dc782&mpshare=1&scene=2&srcid=1022dAMxSE184YFx3tIxPws6&sharer_shareinfo=4f3a01b39f9f5eb0fc1c5d4fba09547a&sharer_shareinfo_first=2650385f1b27cea4735f683f5fc75760#rd" target="_blank" rel="noopener">机器之心</a>]
                     </p>
                 </div>
+                <div class="ptldr" style="padding:3px;margin-left:215px;">CamCloneMaster enables reference-based camera control by replicating camera movements from videos without camera parameters or test-time fine-tuning, supporting both I2V and V2V generation.</div>
             </div>
         
             <div class="paper">
@@ -126,7 +151,6 @@
                 <div class="pauthors" style="padding:3px;margin-left:215px;">
                     Qinghe Wang*,<b>Yawen Luo*</b>(co-first author), Xiaoyu Shi†, Xu Jia†, Huchuan Lu, Tianfan Xue†, Xintao Wang, Pengfei Wan, Di Zhang, Kun Gai
                 </div>
-                <div class="ptldr" style="padding:3px;margin-left:215px;">TL;DR: CineMaster is a 3D-aware controllable text-to-video framework that lets users jointly manipulate objects and cameras in 3D space for cinematic video generation.</div>
                 <div class="pvenue" style="padding:3px;margin-left:215px;">
                     ACM (SIGGRAPH), 2025.
                     <p>
@@ -135,6 +159,7 @@
                         [<a href="https://mp.weixin.qq.com/s/DQ9bVINN7TXnWWrM2vKYzQ" target="_blank" rel="noopener">机器之心</a>]
                     </p>
                 </div>
+                <div class="ptldr" style="padding:3px;margin-left:215px;">CineMaster is a 3D-aware controllable text-to-video framework that lets users jointly manipulate objects and cameras in 3D space for cinematic video generation.</div>
             </div>
         
             <div class="paper">
@@ -147,13 +172,13 @@
                 <div class="pauthors" style="padding:3px;margin-left:215px;">
                     <b>Yawen Luo</b>, Min Shi, Liao Shen, Yachuan Huang, Zixuan Ye, Juewen Peng, Zhiguo Cao†
                 </div>
-                <div class="ptldr" style="padding:3px;margin-left:215px;">TL;DR: Video Bokeh Renderer brings cinematic shallow-depth-of-field effects to casual videos by modeling temporal consistency and using adjacent-frame information, trained with a synthetic ray-traced video bokeh dataset.</div>
                 <div class="pvenue" style="padding:3px;margin-left:215px;">
                     ACM Multimedia (MM), <b>oral</b>, <b>Best Paper Candidate</b>, 2024.
                     <p>
                         [<a href="https://doi.org/10.1145/3664647.3680629" target="_blank" rel="noopener">paper</a>]
                     </p>
                 </div>
+                <div class="ptldr" style="padding:3px;margin-left:215px;">Video Bokeh Renderer brings cinematic shallow-depth-of-field effects to casual videos by modeling temporal consistency and using adjacent-frame information, trained with a synthetic ray-traced video bokeh dataset.</div>
             </div>
         
         </div>
@@ -172,7 +197,6 @@
                 <div class="pauthors" style="padding:3px;margin-left:215px;">
                     Jiwen Liu, Shujuan Li, Zhixue Fang, Xiaohan Li, Yan Zhou, Zijie Meng, Zhimin Zhang, <b>Yawen Luo</b>, Guoxin Zhang, Yu-Shen Liu, Pengfei Wan
                 </div>
-                <div class="ptldr" style="padding:3px;margin-left:215px;">TL;DR: OmniDirector clones diverse multi-shot camera motions to animate source images using a camera grid representation and a hierarchical prompt expansion agent for multimodal control.</div>
                 <div class="pvenue" style="padding:3px;margin-left:215px;">
                     arXiv, 2026.
                     <p>
@@ -181,6 +205,7 @@
                         [<a href="https://github.com/lisj575/OmniDirector" target="_blank" rel="noopener">Code</a>]
                     </p>
                 </div>
+                <div class="ptldr" style="padding:3px;margin-left:215px;">OmniDirector clones diverse multi-shot camera motions to animate source images using a camera grid representation and a hierarchical prompt expansion agent for multimodal control.</div>
             </div>
 
             <div class="paper">
@@ -193,7 +218,6 @@
                 <div class="pauthors" style="padding:3px;margin-left:215px;">
                     Yutian Chen, Shi Guo, Renbiao Jin, Tianshuo Yang, Xin Cai, <b>Yawen Luo</b>, Mingxin Yang, Mulin Yu, Linning Xu, Tianfan Xue
                 </div>
-                <div class="ptldr" style="padding:3px;margin-left:215px;">TL;DR: AnyRecon reconstructs 3D scenes from arbitrary unordered sparse views by combining video diffusion with persistent global scene memory and geometry-aware conditioning.</div>
                 <div class="pvenue" style="padding:3px;margin-left:215px;">
                     Under Review, 2026.
                     <p>
@@ -202,6 +226,7 @@
                         [<a href="https://github.com/OpenImagingLab/AnyRecon/tree/main" target="_blank" rel="noopener">Code</a>]
                     </p>
                 </div>
+                <div class="ptldr" style="padding:3px;margin-left:215px;">AnyRecon reconstructs 3D scenes from arbitrary unordered sparse views by combining video diffusion with persistent global scene memory and geometry-aware conditioning.</div>
             </div>
         </div>
 
