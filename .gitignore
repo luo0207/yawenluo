@@ -139,3 +139,6 @@ docs/api
 *.onnx
 *.engine
 events.out.tfevents*
+
+# macOS
+.DS_Store
